@@ -6,6 +6,10 @@ import Home from "../pages/Home";
 export const routeData = (auth, userType) => {
   return [
     {
+      path: "/",
+      element: auth ? <Home/> : <Navigate to="/login" />
+    },
+    {
       path: "/user",
       element: auth ? <Home/> : <Navigate to="/login" />
     },
@@ -15,11 +19,11 @@ export const routeData = (auth, userType) => {
     },
     {
       path: "/login",
-      element: auth ? <Navigate to="/" /> : <Login />,
+      element: auth ? <Navigate to="/user" /> : <Login />,
     },
     {
       path: "/forgot-password",
-      element: auth ? <Navigate to="/" /> : <ForgotPassword />,
+      element: auth ? <Navigate to="/user" /> : <ForgotPassword />,
     },
     {
       path: "*", // Catch All Invalid Routes

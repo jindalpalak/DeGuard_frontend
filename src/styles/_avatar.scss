@@ -1,0 +1,60 @@
+.avatar-wrapper {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    background-color: $fc-color;
+    color: $fc-white;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}
+
+.avatar {
+    position: relative;
+    &:focus {
+        outline: none;
+    }
+    .avatar-dropdown {
+        position: absolute;
+        background: $fc-white;
+        margin: 0;
+        padding: 0.5rem 0;
+        border-radius: 10px;
+        margin-top: 0.25rem;
+        border: 1px solid $fc-color;
+        right: 0;
+        z-index: 1;
+        .header-label-li {
+            display: none;
+        }
+        li {
+            list-style: none;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            &:hover {
+                background-color: $fc-color;
+                color: $fc-white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .avatar {
+        .avatar-dropdown { 
+            right: 0;
+            .header-label-li {
+                display: block;
+            }
+        }
+    }
+}

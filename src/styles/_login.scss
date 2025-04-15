@@ -1,0 +1,101 @@
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url('../../public/images/robots-analyzing-data-computer-screens.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: blur(4px); // You can adjust the blur here
+        z-index: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 25rem;
+        padding: 20px 20px 60px 20px;
+        border: 2px solid $fc-color;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: $fc-blue-box-shadow;
+        z-index: 1;
+        .top-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            .input-wrapper {
+                .input-field {
+                    background-color: rgba(255, 255, 255, 0.6) !important;
+                }
+            }
+            .wrapper {
+                display: flex;
+                gap: 1rem;
+                .left-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                .right-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+            > .logo {
+                background-image: url("../../public/images/logo.jpg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 7rem;
+                width: 100%;
+            }
+            > .label {
+                font-size: 2rem;
+                justify-content: center;
+                padding-bottom: 8px;
+            }
+        }
+        .bottom-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+        }
+    }
+}
+
+@media (max-width: 765px) {
+    .login-wrapper {
+        .container {
+            border: none;
+            box-shadow: none;
+        }
+    }
+}
+
+.otp_wapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    .input-wrapper {
+        width: 100%;
+    }
+    span {
+        cursor: pointer;
+        color: $fc-color;
+    }
+}

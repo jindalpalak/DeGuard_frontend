@@ -1,0 +1,40 @@
+.sidebar-container {
+    min-width: 15rem;
+    max-width: 20rem;
+    background-color: $fc-white;
+    height: calc(100vh - 70px);
+    box-shadow: 1px 0px 2px -1px rgba(0, 0, 0, 0.3);
+
+    &.sidebar-visible {
+        position: absolute;
+        left: 0;
+    }
+
+    ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        li {
+            background: $fc-light-blue;
+            cursor: pointer;
+            a {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.875rem 1.5rem;
+            }
+            
+            &.active {
+                background: $fc-color;
+                a {
+                    color: $fc-white;
+                }
+            }
+            &:hover {
+                background: $fc-color;
+                a {
+                    color: $fc-white;
+                }
+            }
+        }
+    }
+}

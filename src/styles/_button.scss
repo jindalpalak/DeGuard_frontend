@@ -1,0 +1,65 @@
+.button-wrapper {
+    .button {
+        height: 2.5rem;
+        padding: 0px 0.875rem;
+        font-size: 0.875rem;
+        font-weight: 700;
+        border-radius: 0.25rem;
+        text-transform: capitalize;
+        font-family: $fc-font !important;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease-in-out;
+        &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+
+        &.Primary {
+            background: $fc-color;
+            border: 1px solid $fc-color;
+            color: $fc-white;
+            &:hover {
+                background-color: $fc-dark-blue;
+                border-color: $fc-dark-blue;
+            }
+        }
+
+        &.Success {
+            background: $fc-green;
+            color: $fc-white;
+            border: 1px solid $fc-green;
+            &:hover {
+                background-color: $fc-dark-green;
+                border-color: $fc-dark-green;
+            }
+        }
+
+        &.Secondary {
+            background: $fc-white;
+            border: 1px solid $fc-color;
+            color: $fc-color;
+            &:hover {
+                background-color: $fc-light-blue;
+                border-color: $fc-blue-medium;
+            }
+        }
+
+        &.Alert {
+            background: $fc-red;
+            border: 1px solid $fc-red;
+            color: $fc-white;
+            &:hover {
+                background-color: #b0303d;
+                border-color: #a02936;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@import "./_variables.scss";
+
+//components
+@import "./_loader.scss";
+@import "./_input.scss";
+@import "./_button.scss";
+@import "./_avatar.scss";
+@import "_sidebar.scss";
+
+//pages
+@import "./_login.scss";
+@import "./_home.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $fc-font !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+
+  .label {
+    color: $fc-dark-blue;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+  }
+
+  .title {
+    width: 100%;
+    background: $fc-dark-blue;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $fc-color;
+}
+
+h1 {
+  margin: 0;
+}
+
+.title_header {
+  background-color: $fc-color;
+  color: $fc-white;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+}

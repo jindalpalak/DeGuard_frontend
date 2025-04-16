@@ -4,42 +4,50 @@ import ForgotPassword from './../components/ForgetPassword';
 import Home from "../pages/Home";
 import UserList from "../pages/UserList";
 import UserEditFields from "../components/userEditFields";
+import NotFound from './../components/NotFoundPage';
 
-const nestedRoutes = () => {
-  return [
+const nestedRoutes = (allowedPaths = []) => {
+  const allNested = [
     {
       path: '/user',
-      element: <UserList/>
+      element: <UserList />
     },
     {
       path: '/user/:id',
-      element: <UserEditFields/>
+      element: <UserEditFields />
     },
     {
-      path: "approval",
+      path: '/approval',
       element: <>Approval</>
     }
-  ]
-}
+  ];
 
-export const routeData = (auth, userType) => {
+  // Only include nested routes if their full path is allowed
+  return allNested.filter(route => 
+    allowedPaths.some(path => route.path.startsWith(path))
+  );
+};
+
+export const routeData = (auth, services) => {
+  const allowedPaths = services?.map(service => service.helpUrl) ?? [];
+  
   return [
     {
       path: "/",
-      element: auth ? <Home/> : <Navigate to="/login" />,
-      nestedRoutes: nestedRoutes()
+      element: auth ? <Home /> : <Navigate to="/login" />,
+      nestedRoutes: nestedRoutes(allowedPaths),
     },
     {
       path: "/login",
-      element: auth ? <Navigate to="/user" /> : <Login />,
+      element: auth ? <Navigate to={`${allowedPaths[0] ?? "/"}`} /> : <Login />,
     },
     {
       path: "/forgot-password",
-      element: auth ? <Navigate to="/user" /> : <ForgotPassword />,
+      element: auth ? <Navigate to={`${allowedPaths[0] ?? "/"}`} /> : <ForgotPassword />,
     },
     {
       path: "*", // Catch All Invalid Routes
-      element: <>Not Found</>,
+      element: <NotFound/>,
     },
   ];
 };

@@ -35,9 +35,15 @@ const UserEditFields = ({ closeForm }) => {
     }
 
     const handleSubmit = async () => {
-        const userRequiredFields = ['name', 'email', 'password', "services"];
-    
-        const emptyUserFields = validateRequiredFields(formData, userRequiredFields);
+        const addPassword = ["password"];
+        const userRequiredFields = ['name', 'email', "services"];
+        
+        const updatedUserFields = [
+          ...userRequiredFields,
+          ...(!id ? addPassword : [])
+        ];
+        
+        const emptyUserFields = validateRequiredFields(formData, updatedUserFields);
     
         if (emptyUserFields.length > 0) {
             toast.error(`The following fields are required: ${emptyUserFields.join(', ')}`);
@@ -110,7 +116,7 @@ const UserEditFields = ({ closeForm }) => {
                 <div className="content">
                     <InputField disabled={id} name="name" label="User Name" value={formData?.name} onChange={handleOnChange}/>
                     <InputField disabled={id} name="email" label="Email" value={formData?.email} onChange={handleOnChange}/>
-                    <InputField disabled={id} name="password" label="Password" value={formData?.password} onChange={handleOnChange}/>
+                    {!id && <InputField disabled={id} name="password" label="Password" value={formData?.password} onChange={handleOnChange}/>}
                     <CustomCheckbox label="Services" options={serviceOption} onChange={(e) => handleSelectCheckBox(e, "services")} selectedValue={formData?.services}/>
                     {id && <Toggle label="Active" checked={formData?.isActive === 1} onChange={(e) => handleSelectCheckBox(e ? 1 : 0, "isActive")}/>}
                 </div>

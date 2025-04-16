@@ -1,10 +1,18 @@
-import { activeSidebar, rootSidebarData } from "../routes/sidebarData";
+import { activeSidebar } from "../routes/sidebarData";
 import { Link, useLocation } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Sidebar = (({ onClick, className }) => {
   const location = useLocation();
-  const sidebarData = rootSidebarData();
+  const {userDetail} = useSelector((state) => state?.user);
+  const {services} = userDetail ?? {};
+  const sidebarData = services?.map((item) => {
+    return {
+      path: item?.helpUrl,
+      label: item?.name
+    }
+  })
 
   return (
     <div className={`sidebar-container ${className}`}>

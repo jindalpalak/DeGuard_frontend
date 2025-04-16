@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import PasswordInput from "../components/PasswordInput";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/action/user.action";
+import { loginService } from "../services/loginServices";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
@@ -20,7 +21,8 @@ const Login = () => {
   const logIn = async () => {
     setLoader(true);
     try {
-      dispatch(login({...loginData, token: "user_token"}))
+      const res = await loginService.logIn(loginData);
+      dispatch(login(res?.data?.result))
     } catch (err) {
       toast.error(err.message);
     } finally {

@@ -7,13 +7,13 @@ import { routeData } from "./routes/Routes";
 const App = () => {
   const navigate = useNavigate();
   const {userDetail} = useSelector((state) => state?.user);
-  const userRole = userDetail ? userDetail?.userType : "";
-  const [routes, setRoutes] = useState(routeData(userDetail?.token, userRole));
+  const {services, accessToken} = userDetail ?? {};
+  const [routes, setRoutes] = useState(routeData(accessToken, services));
 
   useEffect(() => {
-    setRoutes(routeData(userDetail?.token, userRole));
+    setRoutes(routeData(accessToken, services));
     // eslint-disable-next-line
-  }, [userDetail?.token, navigate]);
+  }, [accessToken, navigate]);
 
   return (
     <>

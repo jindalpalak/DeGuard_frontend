@@ -1,0 +1,15 @@
+.not_found_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 1rem;
+    color: $fc-red;
+    h2 {
+        margin: 0;
+    }
+    p {
+        margin: 0;
+    }
+}

@@ -1,2 +1,3 @@
 export const LOGIN_SUCCESSFULLY = "LOGIN_SUCCESSFULLY";
 export const SIGN_OUT = "SIGN_OUT";
+export const FETCH_SERVICE = "FETCH_SERVICE";

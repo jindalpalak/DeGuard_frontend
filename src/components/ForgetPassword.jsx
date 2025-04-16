@@ -89,13 +89,13 @@ const ForgotPassword = () => {
                 placeholder="******"
                 onChange={onChange}
               />
-              <span 
-                // onClick={resendOtp}
+              <span
+              // onClick={resendOtp}
               >Resend Otp</span>
             </div>
             <Button
               label="Confirm"
-              // onClick={handleSubmit}
+            // onClick={handleSubmit}
             />
             <div className="login-footer" style={{ display: "flex", justifyContent: "center" }}>
               <Link to="/login">Back to Login</Link>

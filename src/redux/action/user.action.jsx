@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESSFULLY, SIGN_OUT } from "../type"
+import { FETCH_SERVICE, LOGIN_SUCCESSFULLY, SIGN_OUT } from "../type"
 
 export const login = (data) => {
     return {
@@ -11,3 +11,9 @@ export const _logOut = () => ({
     type: SIGN_OUT,
     payload: null
 });
+
+
+export const fetchServices = (data) => ({
+    type: FETCH_SERVICE,
+    payload: data
+})

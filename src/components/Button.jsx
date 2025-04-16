@@ -1,5 +1,5 @@
 import React from 'react';
-   
+
 const Button = ({
   label = 'Button',
   theme = 'Primary',
@@ -19,13 +19,13 @@ const Button = ({
           className={`button ${className} ${theme}`}
           {...rest}
         >
-            {label}
-            {showIcon && <>
-                {icon}
-            </>}
+          {label}
+          {showIcon && <>
+            {icon}
+          </>}
         </button>
       </div>
     </>
   );
 };
-export { Button } ;
+export { Button };

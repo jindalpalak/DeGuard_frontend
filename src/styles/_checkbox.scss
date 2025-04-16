@@ -1,0 +1,20 @@
+.checkbox_wrapper {
+    .label {
+        font-family: $fc-font;
+    }
+    .MuiFormGroup-root {
+        flex-direction: row;
+        .MuiTypography-root {
+            font-family: $fc-font;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        .MuiFormControlLabel-root {
+            .MuiButtonBase-root {
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

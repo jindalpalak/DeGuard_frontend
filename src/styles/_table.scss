@@ -1,0 +1,81 @@
+.table_wrapper{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    .button-wrapper {
+        width: fit-content;
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .MuiDataGrid-root {
+        width: 100%;
+        .MuiDataGrid-main {
+            .MuiDataGrid-topContainer {
+                .MuiDataGrid-columnHeaders {
+                    border-bottom: 1px solid $fc-blue-medium;
+                    .MuiDataGrid-row--borderBottom {
+                        .MuiDataGrid-columnHeader {
+                            .MuiDataGrid-columnHeaderDraggableContainer {
+                                .MuiDataGrid-columnHeaderTitleContainer {
+                                    .MuiDataGrid-columnHeaderTitleContainerContent {
+                                        .MuiDataGrid-columnHeaderTitle {
+                                            color: $fc-dark-blue;
+                                            font-weight: 900;
+                                            font-size: 0.875rem;
+                                            font-family: "Montserrat";                                    
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .MuiDataGrid-virtualScrollerContent {
+                .MuiDataGrid-virtualScrollerRenderZone {
+                    background-color: $fc-white;
+                    .MuiDataGrid-row {
+                        .MuiDataGrid-cell  {
+                            color: $fc-color;
+                            font-weight: 500;
+                            font-size: 0.875rem;
+                            font-family: "Montserrat";
+                            background-color: transparent;
+                            .actions_wrapper {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100%;
+                                gap: 0.875rem;
+                                svg {
+                                    font-size: 1.25rem;
+                                }
+                            }
+                        }
+                        &:hover {
+                            background-color: #edf8fd;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        .MuiDataGrid-footerContainer {
+            background-color: $fc-white;
+            .MuiTablePagination-root {
+                .MuiTablePagination-displayedRows {
+                    color: $fc-color;
+                    font-weight: 700;
+                    font-size: 0.875rem;
+                    font-family: "Montserrat";
+                }
+                .MuiTablePagination-actions {
+                    color: $fc-color;
+                }
+            }
+        }
+    }
+}

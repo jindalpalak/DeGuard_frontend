@@ -4,7 +4,7 @@ import { useState } from 'react';
 const PasswordInput = ({
     placeholder = "",
     className,
-    name="",
+    name = "",
     label,
     disabled = false,
     maxLength = 100,
@@ -14,11 +14,11 @@ const PasswordInput = ({
     value,
     width,
     ...rest
-})=> {
+}) => {
     const [isPassword, setIsPassword] = useState(true);
 
     return (
-        <div className={`input-wrapper password-wrapper`} style={width ? {width: width} : {}}>
+        <div className={`input-wrapper password-wrapper`} style={width ? { width: width } : {}}>
             {label && <div className="label">{label}</div>}
             <input
                 className="input-field"
@@ -36,8 +36,8 @@ const PasswordInput = ({
                 autoComplete="off"
                 {...rest}
             />
-            {isPassword && <IoEyeOffOutline onClick={() => setIsPassword(!isPassword)}/>}
-            {!isPassword && <IoEyeOutline onClick={() => setIsPassword(!isPassword)}/>}
+            {isPassword && <IoEyeOffOutline onClick={() => setIsPassword(!isPassword)} />}
+            {!isPassword && <IoEyeOutline onClick={() => setIsPassword(!isPassword)} />}
         </div>
     )
 }

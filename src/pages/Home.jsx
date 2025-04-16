@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import SideBar from "../components/SideBar";
 import Avatar from "../components/Avatar";
@@ -17,6 +17,7 @@ const Home = () => {
   const firstName = userDetail ? `${userDetail?.email}` : "";
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const logout = async () => {
     try {
@@ -29,6 +30,9 @@ const Home = () => {
   };
 
   useEffect(() => {
+    if(location?.pathname === "/") {
+      navigate("/user")
+    }
     const handleClickOutside = (event) => {
       if (avatarRef.current && !avatarRef.current.contains(event.target)) {
         setShowMenu(false);
@@ -39,6 +43,7 @@ const Home = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+    // eslint-disable-next-line
   }, []);
 
   return (

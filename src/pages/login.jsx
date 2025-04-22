@@ -6,7 +6,7 @@ import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
 import PasswordInput from "../components/PasswordInput";
 import { useDispatch } from "react-redux";
-import { login } from "../redux/action/user.action";
+import { login, setLoginTime } from "../redux/action/user.action";
 import { loginService } from "../services/loginServices";
 
 const Login = () => {
@@ -22,7 +22,9 @@ const Login = () => {
     setLoader(true);
     try {
       const res = await loginService.logIn(loginData);
-      dispatch(login(res?.data?.result))
+      localStorage.setItem("loginTime", new Date().toISOString());
+      dispatch(login(res?.data?.result));
+      dispatch(setLoginTime());
     } catch (err) {
       toast.error(err.message);
     } finally {

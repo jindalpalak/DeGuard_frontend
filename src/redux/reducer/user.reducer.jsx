@@ -1,4 +1,4 @@
-import { FETCH_SERVICE, LOGIN_SUCCESSFULLY, SIGN_OUT } from "../type";
+import { FETCH_SERVICE, LOGIN_SUCCESSFULLY, LOGIN_TIME, SIGN_OUT } from "../type";
 
 const initialState = {
     userDetail: null
@@ -22,6 +22,11 @@ export const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 services: payload
+            }
+        case LOGIN_TIME:
+            return {
+                ...state,
+                loginTime: payload
             }
         default :
             return state;
